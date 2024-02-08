@@ -1,11 +1,8 @@
 import { MdNotificationsNone } from "react-icons/md";
 
-interface headerProps {
-  toggle: boolean;
-}
-const Header = ({ toggle }: headerProps) => {
+const Header = () => {
   return (
-    <div className="flex bg-blueshade9">
+    <div className="header-wrapper flex bg-blueshade9">
       <div className={`sm:w-[120px] lg:hidden duration-1000`}></div>
       <div className="h-[100px] relative border-b-[2px]   border-b-blueshade7 w-full py-2.5 px-6 flex flex-row items-center justify-between ">
         <h1 className="text-lg sm:text-[32px] z-0 hidden sm:block font-bold ">

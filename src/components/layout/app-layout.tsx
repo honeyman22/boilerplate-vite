@@ -1,23 +1,25 @@
-import Sidebar from "./sidebar";
+import Sidebar from "./sidebar/sidebar";
 import Header from "./header";
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useDisclosure } from "@mantine/hooks";
+import classNames from "classnames";
 
 function Layout() {
-  const [toggle, setToggle] = useState(false);
+  const [opened, { toggle }] = useDisclosure(false);
   return (
-    <div className="w-full flex relative  h-screen ">
+    <div className="app-layout w-full  flex relative  h-screen ">
       <div
-        className={` sm:z-30 lg:z-10 flex flex-row lg:relative   ${
-          !toggle
-            ? "sm:absolute  sm:w-[100vw] lg:w-auto transition-all "
-            : "lg:relative transition-all"
-        }`}
+        className={classNames(
+          " sidebar-container sm:z-30 lg:z-10 flex flex-row lg:relative ",
+          opened
+            ? "lg:relative transition-all"
+            : "sm:absolute  sm:w-[100vw] lg:w-auto transition-all "
+        )}
       >
-        <Sidebar toggle={toggle} setToggle={setToggle} />
+        <Sidebar opened={opened} toggle={toggle} />
       </div>
-      <div className="flex-1 sm:absolute lg:relative md:z-20 lg:z-0 w-full ">
-        <Header toggle={toggle} />
+      <div className="header-outlet-container flex-1 sm:absolute lg:relative md:z-20 lg:z-0 w-full ">
+        <Header />
         <div className="p-6">
           <Outlet />
         </div>

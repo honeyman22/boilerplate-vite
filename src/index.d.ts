@@ -10,3 +10,8 @@ type APIResponse<T> = {
   docs?: Docs;
   others?: object;
 };
+
+interface sidebarProps {
+  opened: boolean;
+  toggle: () => void;
+}
