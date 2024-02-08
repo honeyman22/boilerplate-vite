@@ -14,6 +14,7 @@ const SidebarBox = ({ name, icon, route, opened }: SidebarItem) => {
       key={name}
       className="side-list rounded cursor-pointer overflow-hidden hover:bg-blueshade7 text-blueshade2  px-4 py-2 flex items-center gap-4 "
     >
+      {/* //this is noting */}
       <div className="w-6 h-6">{icon}</div>
       <p
         className={classNames(
