@@ -1,19 +1,17 @@
-import React from "react";
+import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({
-  children,
-  logged,
-}: {
-  children: React.ReactNode;
-  logged?: boolean;
-}) => {
-  if (!logged) {
-    return <Navigate to={"/login"} />;
-  }
+interface IProtectedRoute {
+  children: ReactNode;
+}
 
-  return <>{children}</>;
-  //   return <Route {...rest}>{children}</Route>;
+export const ProtectedRoute = ({ children }: IProtectedRoute) => {
+  const user = true;
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  } else {
+    return <>{children}</>;
+  }
 };
 
 export default ProtectedRoute;
