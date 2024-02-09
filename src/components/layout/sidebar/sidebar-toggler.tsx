@@ -3,8 +3,8 @@ const SideBarToggler = ({ opened, toggle }: sidebarProps) => {
     <button
       onClick={toggle}
       className={`${
-        opened ? "toggler" : "notoggler"
-      } hover:cursor-pointer z-50 hidden sm:block absolute top-[40px] -right-[14px]`}
+        opened ? "toggler hidden sm:block" : "notoggler"
+      } hover:cursor-pointer z-50 block absolute top-[40px] -right-[14px]`}
     >
       <svg
         width="32"

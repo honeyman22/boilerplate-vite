@@ -1,6 +1,7 @@
+import classNames from "classnames";
 import { MdNotificationsNone } from "react-icons/md";
 
-const Header = () => {
+const Header = ({ opened, toggle }: sidebarProps) => {
   return (
     <div className="header-wrapper flex bg-blueshade9">
       <div className={`sm:w-[120px] lg:hidden duration-1000`}></div>
@@ -8,7 +9,12 @@ const Header = () => {
         <h1 className="text-lg sm:text-[32px] z-0 hidden sm:block font-bold ">
           Dashboard
         </h1>
-        <button className=" hover:cursor-pointer sm:hidden ">
+
+        <button
+          onClick={toggle}
+          className={classNames(
+            " hover:cursor-pointer sm:hidden ")}
+        >
           <svg
             width="42"
             height=""

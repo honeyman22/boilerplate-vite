@@ -5,11 +5,11 @@ import SidebarBox from "./sidebar-box";
 
 const Sidebar = ({ opened, toggle }: sidebarProps) => {
   return (
-    <div className="w-full sidebar-wrapper flex ">
+    <div className="w-full  sidebar-wrapper flex ">
       <div
         className={classnames(
-          "h-screen relative px-6 py-8 hidden sm:block duration-1000 ease-in-out border-r-[2px] bg-blueshade9  border-blueshade7",
-          opened ? "w-[108px]" : "w-[273px]"
+          "h-screen relative sm:px-6  py-8 block duration-1000 ease-in-out border-r-[2px] bg-blueshade9  border-blueshade7",
+          opened ? "w-0 sm:block  sm:w-[108px]" : "w-[273px] px-6"
         )}
       >
         <div
@@ -35,7 +35,12 @@ const Sidebar = ({ opened, toggle }: sidebarProps) => {
           </h1>
         </div>
         <SideBarToggler opened={opened} toggle={toggle} />
-        <div className="route-list flex   flex-col mt-10 gap-2">
+        <div
+          className={classnames(
+            "mt-10",
+            opened && "hidden route-list   flex-col   sm:flex "
+          )}
+        >
           {sidebardata.map((item) => (
             <SidebarBox key={item?.name} {...item} opened={opened} />
           ))}
